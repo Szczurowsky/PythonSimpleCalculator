@@ -50,5 +50,6 @@ class Calculator:
 new_calc = Calculator()
 print('Result is', new_calc())
 action = input('Enter to end, - to use again\n')
-if action == '-':
+while action == '-':
     print('Result is', new_calc())
+    action = input('Enter to end, - to use again\n')
