@@ -6,7 +6,7 @@ class Calculator:
     def __call__(self):
         numbers = []
         __i = int(0)
-        input_numbers = 2  # Soons
+        input_numbers = 2  # Soon
         while input_numbers != __i:
             last_number = input("Type number " + str(__i+1) + "\n")
             try:
