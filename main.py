@@ -14,13 +14,13 @@ class Calculator:
             except Exception as e:
                 logging.info(e)
                 print('This is not number :/\n')
-                Calculator.__call__(self)
+                return Calculator.__call__(self)
             numbers.append(last_number)
             del last_number
             __i = __i + 1
         return Calculator.do(self, numbers)
 
-    def do(self, numbers, operation=1):
+    def do(self, given_numbers, operation=1):
         try:
             operation = input("What u want to do: \n 1 - add "
                               "\n 2 - subtract \n 3 - multiply \n 4 - division \n")
@@ -28,23 +28,28 @@ class Calculator:
         except Exception as e:
             logging.info(e)
             print('Type number 1 to 4 to select')
+            return Calculator.do(self, given_numbers)
         if operation == 1 or operation == 2 or operation == 3 or operation == 4:
             i = int(0)
-            while i != len(numbers):
-                __temp = int(numbers[i])
-                numbers[i] = __temp
+            __temp = float(0)
+            while i != len(given_numbers):
+                if type(__temp) is int:
+                    __temp = int(given_numbers[i])
+                else:
+                    __temp = float(given_numbers[i])
+                given_numbers[i] = __temp
                 i = i + 1
             if operation is 1:
-                return numbers[0] + numbers[1]
+                return given_numbers[0] + given_numbers[1]
             if operation is 2:
-                return numbers[0] - numbers[1]
+                return given_numbers[0] - given_numbers[1]
             if operation is 3:
-                return numbers[0] * numbers[1]
+                return given_numbers[0] * given_numbers[1]
             if operation is 4:
-                return numbers[0] / numbers[1]
+                return given_numbers[0] / given_numbers[1]
         else:
             print('Type number 1 to 4 to select')
-            Calculator.do(self, numbers)
+            return Calculator.do(self, given_numbers)
 
 
 new_calc = Calculator()
