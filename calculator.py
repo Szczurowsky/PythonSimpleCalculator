@@ -50,7 +50,7 @@ class EndCalculator(Calculator):
             except Exception as e:
                 logging.info(e)
                 print('This is not number :/\n')
-                return Calculator.__call__(self)
+                return EndCalculator.__call__(self)
             numbers.append(last_number)
             del last_number
             __i = __i + 1
